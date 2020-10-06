@@ -1,0 +1,12 @@
+FROM openjdk:11-jre-slim
+
+ENV HOST 0.0.0.0
+
+WORKDIR /usr/src/app
+
+COPY target/lib/* ./lib/
+COPY target/*-runner.jar ./app.jar
+
+EXPOSE $PORT
+
+CMD ["java", "-jar", "app.jar"]
